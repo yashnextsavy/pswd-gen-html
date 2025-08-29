@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,17 +9,17 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500;700&display=swap');
-        
+
         body {
             font-family: 'Noto Sans JP', sans-serif;
         }
-        
+
         .gradient-bg {
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
             position: relative;
             overflow: hidden;
         }
-        
+
         .gradient-bg::before {
             content: '';
             position: absolute;
@@ -26,57 +27,90 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: 
+            background-image:
                 radial-gradient(circle at 20% 80%, rgba(220, 38, 127, 0.1) 0%, transparent 50%),
                 radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.08) 0%, transparent 50%);
         }
-        
+
         .glass {
             backdrop-filter: blur(15px);
             background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3);
         }
-        
+
         .japanese-title {
             font-family: 'Noto Serif JP', serif;
             font-weight: 500;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
-        
-        .strength-weak { color: #dc2626; }
-        .strength-fair { color: #f59e0b; }
-        .strength-good { color: #059669; }
-        .strength-strong { color: #dc2727; }
-        
+
+        .strength-weak {
+            color: #dc2626;
+        }
+
+        .strength-fair {
+            color: #f59e0b;
+        }
+
+        .strength-good {
+            color: #059669;
+        }
+
+        .strength-strong {
+            color: #dc2727;
+        }
+
         .copy-animation {
             animation: copyPulse 0.6s ease-out;
         }
-        
+
         @keyframes copyPulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
         }
-        
+
         .floating {
             animation: floating 8s ease-in-out infinite;
         }
-        
+
         @keyframes floating {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-30px) rotate(5deg); }
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-30px) rotate(5deg);
+            }
         }
-        
+
         .slide-up {
             animation: slideUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
-        
+
         @keyframes slideUp {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        
+
         .cherry-blossom {
             position: absolute;
             width: 8px;
@@ -85,26 +119,33 @@
             border-radius: 50%;
             animation: fall 15s linear infinite;
         }
-        
+
         @keyframes fall {
-            0% { 
-                transform: translateY(-100vh) rotate(0deg); 
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
                 opacity: 0;
             }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { 
-                transform: translateY(100vh) rotate(360deg); 
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(360deg);
                 opacity: 0;
             }
         }
-        
+
         .btn-japanese {
             background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
             position: relative;
             overflow: hidden;
         }
-        
+
         .btn-japanese::before {
             content: '';
             position: absolute;
@@ -115,31 +156,38 @@
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: left 0.5s;
         }
-        
+
         .btn-japanese:hover::before {
             left: 100%;
         }
-        
+
         .input-japanese {
             background: rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(220, 38, 127, 0.3);
             transition: all 0.3s ease;
         }
-        
+
         .input-japanese:focus {
             border-color: rgba(220, 38, 127, 0.6);
             box-shadow: 0 0 20px rgba(220, 38, 127, 0.2);
         }
     </style>
 </head>
+
 <body class="gradient-bg min-h-screen">
     <!-- Background decoration -->
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
         <!-- Floating geometric shapes inspired by Japanese art -->
-        <div class="floating absolute top-20 left-20 w-24 h-24 rounded-full" style="background: radial-gradient(circle, rgba(220, 38, 127, 0.1), transparent); animation-delay: 0s;"></div>
-        <div class="floating absolute top-40 right-32 w-32 h-32 rounded-full" style="background: radial-gradient(circle, rgba(255, 215, 0, 0.08), transparent); animation-delay: -2s;"></div>
-        <div class="floating absolute bottom-32 left-1/4 w-20 h-20 rounded-full" style="background: radial-gradient(circle, rgba(139, 69, 19, 0.1), transparent); animation-delay: -4s;"></div>
-        
+        <div class="floating absolute top-20 left-20 w-24 h-24 rounded-full"
+            style="background: radial-gradient(circle, rgba(220, 38, 127, 0.1), transparent); animation-delay: 0s;">
+        </div>
+        <div class="floating absolute top-40 right-32 w-32 h-32 rounded-full"
+            style="background: radial-gradient(circle, rgba(255, 215, 0, 0.08), transparent); animation-delay: -2s;">
+        </div>
+        <div class="floating absolute bottom-32 left-1/4 w-20 h-20 rounded-full"
+            style="background: radial-gradient(circle, rgba(139, 69, 19, 0.1), transparent); animation-delay: -4s;">
+        </div>
+
         <!-- Cherry blossom petals -->
         <div class="cherry-blossom" style="left: 10%; animation-delay: 0s;"></div>
         <div class="cherry-blossom" style="left: 30%; animation-delay: -3s;"></div>
@@ -152,31 +200,26 @@
         <div class="glass rounded-2xl p-8 w-full max-w-md shadow-2xl slide-up">
             <!-- Header -->
             <div class="text-center mb-8">
-                <div class="text-6xl mb-4"></div>
+                <!-- <div class="text-6xl mb-4">🌸</div> -->
                 <!-- <h1 class="japanese-title text-4xl font-bold text-white mb-2">パスワード生成器</h1> -->
                 <h2 class="text-xl font-medium text-pink-200 mb-3">Password Generator</h2>
-                <p class="text-pink-100 text-sm">安全なパスワードを瞬時に生成 • Generate secure passwords instantly</p>
+                <p class="text-pink-100 text-sm">Generate secure passwords instantly</p>
             </div>
 
             <!-- Generated Password Display -->
             <div class="mb-6">
-                <label class="block text-pink-100 font-medium mb-2">生成されたパスワード • Generated Password</label>
+                <label class="block text-pink-100 font-medium mb-2">Generated Password</label>
                 <div class="relative">
-                    <input 
-                        type="text" 
-                        id="generatedPassword" 
+                    <input type="text" id="generatedPassword"
                         class="input-japanese w-full px-4 py-3 border rounded-xl text-white font-mono text-sm focus:outline-none focus:ring-2 focus:ring-pink-400"
-                        placeholder="生成ボタンをクリックしてください • Click generate to create password"
-                        readonly
-                    >
-                    <button 
-                        id="copyBtn" 
+                        placeholder="Click generate to create password" readonly>
+                    <button id="copyBtn"
                         class="absolute right-3 top-1/2 transform -translate-y-1/2 text-pink-300 hover:text-white transition-colors p-1"
-                        title="クリップボードにコピー • Copy to clipboard"
-                        disabled
-                    >
+                        title="Copy to clipboard" disabled>
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
+                            </path>
                         </svg>
                     </button>
                 </div>
@@ -190,67 +233,60 @@
                     <label class="block text-pink-100 font-medium mb-2">
                         パスワードの長さ • Password Length: <span id="lengthValue" class="text-yellow-300 font-bold">12</span>
                     </label>
-                    <input 
-                        type="range" 
-                        id="lengthSlider" 
-                        min="4" 
-                        max="50" 
-                        value="12" 
+                    <input type="range" id="lengthSlider" min="4" max="50" value="12"
                         class="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer"
-                        style="background: linear-gradient(to right, #dc2626 0%, #fbbf24 50%, #059669 100%);"
-                    >
+                        style="background: linear-gradient(to right, #dc2626 0%, #fbbf24 50%, #059669 100%);">
                 </div>
 
                 <!-- Character Options -->
                 <div class="grid grid-cols-1 gap-3">
                     <label class="flex items-center text-pink-100 cursor-pointer hover:text-white transition-colors">
-                        <input type="checkbox" id="includeUppercase" checked class="mr-3 w-4 h-4 text-red-600 bg-gray-800 border-gray-600 rounded focus:ring-pink-500">
-                        <span>大文字 • Uppercase Letters (A-Z)</span>
+                        <input type="checkbox" id="includeUppercase" checked
+                            class="mr-3 w-4 h-4 text-red-600 bg-gray-800 border-gray-600 rounded focus:ring-pink-500">
+                        <span>Uppercase Letters (A-Z)</span>
                     </label>
-                    
+
                     <label class="flex items-center text-pink-100 cursor-pointer hover:text-white transition-colors">
-                        <input type="checkbox" id="includeLowercase" checked class="mr-3 w-4 h-4 text-red-600 bg-gray-800 border-gray-600 rounded focus:ring-pink-500">
-                        <span>小文字 • Lowercase Letters (a-z)</span>
+                        <input type="checkbox" id="includeLowercase" checked
+                            class="mr-3 w-4 h-4 text-red-600 bg-gray-800 border-gray-600 rounded focus:ring-pink-500">
+                        <span>Lowercase Letters (a-z)</span>
                     </label>
-                    
+
                     <label class="flex items-center text-pink-100 cursor-pointer hover:text-white transition-colors">
-                        <input type="checkbox" id="includeNumbers" checked class="mr-3 w-4 h-4 text-red-600 bg-gray-800 border-gray-600 rounded focus:ring-pink-500">
-                        <span>数字 • Numbers (0-9)</span>
+                        <input type="checkbox" id="includeNumbers" checked
+                            class="mr-3 w-4 h-4 text-red-600 bg-gray-800 border-gray-600 rounded focus:ring-pink-500">
+                        <span>Numbers (0-9)</span>
                     </label>
-                    
+
                     <label class="flex items-center text-pink-100 cursor-pointer hover:text-white transition-colors">
-                        <input type="checkbox" id="includeSymbols" checked class="mr-3 w-4 h-4 text-red-600 bg-gray-800 border-gray-600 rounded focus:ring-pink-500">
-                        <span>記号 • Symbols (!@#$%^&*)</span>
+                        <input type="checkbox" id="includeSymbols" checked
+                            class="mr-3 w-4 h-4 text-red-600 bg-gray-800 border-gray-600 rounded focus:ring-pink-500">
+                        <span>Symbols (!@#$%^&*)</span>
                     </label>
-                    
+
                     <label class="flex items-center text-pink-100 cursor-pointer hover:text-white transition-colors">
-                        <input type="checkbox" id="excludeAmbiguous" class="mr-3 w-4 h-4 text-red-600 bg-gray-800 border-gray-600 rounded focus:ring-pink-500">
-                        <span>曖昧な文字を除外 • Exclude Ambiguous (0, O, l, 1)</span>
+                        <input type="checkbox" id="excludeAmbiguous"
+                            class="mr-3 w-4 h-4 text-red-600 bg-gray-800 border-gray-600 rounded focus:ring-pink-500">
+                        <span>Exclude Ambiguous (0, O, l, 1)</span>
                     </label>
                 </div>
             </div>
 
             <!-- Generate Button -->
-            <button 
-                id="generateBtn" 
-                class="btn-japanese w-full text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-pink-300 mb-4 shadow-lg"
-            >
-                <span class="relative z-10">🌸 パスワードを生成 • Generate Password</span>
+            <button id="generateBtn"
+                class="btn-japanese w-full text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-pink-300 mb-4 shadow-lg">
+                <span class="relative z-10">Generate Password</span>
             </button>
 
             <!-- Quick Actions -->
             <div class="grid grid-cols-2 gap-3">
-                <button 
-                    id="regenerateBtn" 
+                <button id="regenerateBtn"
                     class="bg-gray-700 hover:bg-gray-600 text-pink-100 font-medium py-3 px-4 rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-400 border border-gray-600"
-                    disabled
-                >
+                    disabled>
                     🔄 再生成
                 </button>
-                <button 
-                    id="clearBtn" 
-                    class="bg-red-800 hover:bg-red-700 text-pink-100 font-medium py-3 px-4 rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-red-400 border border-red-600"
-                >
+                <button id="clearBtn"
+                    class="bg-red-800 hover:bg-red-700 text-pink-100 font-medium py-3 px-4 rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-red-400 border border-red-600">
                     🗑️ クリア
                 </button>
             </div>
@@ -259,10 +295,7 @@
             <div class="mt-6">
                 <div class="flex items-center justify-between mb-3">
                     <h3 class="text-pink-100 font-medium">履歴 • Recent Passwords</h3>
-                    <button 
-                        id="clearHistoryBtn" 
-                        class="text-xs text-pink-300 hover:text-white transition-colors"
-                    >
+                    <button id="clearHistoryBtn" class="text-xs text-pink-300 hover:text-white transition-colors">
                         履歴をクリア • Clear History
                     </button>
                 </div>
@@ -292,7 +325,7 @@
                 this.strengthIndicator = document.getElementById('strengthIndicator');
                 this.passwordHistory = document.getElementById('passwordHistory');
                 this.clearHistoryBtn = document.getElementById('clearHistoryBtn');
-                
+
                 this.includeUppercase = document.getElementById('includeUppercase');
                 this.includeLowercase = document.getElementById('includeLowercase');
                 this.includeNumbers = document.getElementById('includeNumbers');
@@ -338,19 +371,19 @@
                 this.generatedPassword.value = password;
                 this.copyBtn.disabled = false;
                 this.regenerateBtn.disabled = false;
-                
+
                 this.updateStrengthIndicator(password);
                 this.addToHistory(password);
             }
 
             createPassword(length, options) {
                 let charset = '';
-                
+
                 if (options.includeUppercase) charset += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
                 if (options.includeLowercase) charset += 'abcdefghijklmnopqrstuvwxyz';
                 if (options.includeNumbers) charset += '0123456789';
                 if (options.includeSymbols) charset += '!@#$%^&*()_+-=[]{}|;:,.<>?';
-                
+
                 if (options.excludeAmbiguous) {
                     charset = charset.replace(/[0O1lI]/g, '');
                 }
@@ -358,11 +391,11 @@
                 let password = '';
                 const array = new Uint32Array(length);
                 crypto.getRandomValues(array);
-                
+
                 for (let i = 0; i < length; i++) {
                     password += charset[array[i] % charset.length];
                 }
-                
+
                 return password;
             }
 
@@ -374,14 +407,14 @@
                 const strength = this.calculatePasswordStrength(password);
                 const strengthText = ['Weak', 'Fair', 'Good', 'Strong'][strength];
                 const strengthClass = ['strength-weak', 'strength-fair', 'strength-good', 'strength-strong'][strength];
-                
+
                 this.strengthIndicator.textContent = `Password Strength: ${strengthText}`;
                 this.strengthIndicator.className = `mt-2 text-sm font-medium ${strengthClass}`;
             }
 
             calculatePasswordStrength(password) {
                 let score = 0;
-                
+
                 if (password.length >= 8) score++;
                 if (password.length >= 12) score++;
                 if (/[a-z]/.test(password)) score++;
@@ -389,7 +422,7 @@
                 if (/[0-9]/.test(password)) score++;
                 if (/[^A-Za-z0-9]/.test(password)) score++;
                 if (password.length >= 16) score++;
-                
+
                 if (score < 3) return 0; // Weak
                 if (score < 5) return 1; // Fair
                 if (score < 6) return 2; // Good
@@ -399,17 +432,17 @@
             async copyToClipboard() {
                 try {
                     await navigator.clipboard.writeText(this.generatedPassword.value);
-                    
+
                     // Visual feedback
                     this.copyBtn.classList.add('copy-animation');
                     const originalContent = this.copyBtn.innerHTML;
                     this.copyBtn.innerHTML = '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
-                    
+
                     setTimeout(() => {
                         this.copyBtn.innerHTML = originalContent;
                         this.copyBtn.classList.remove('copy-animation');
                     }, 1000);
-                    
+
                 } catch (err) {
                     // Fallback for older browsers
                     this.generatedPassword.select();
@@ -426,25 +459,25 @@
             }
 
             addToHistory(password) {
-                const timestamp = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+                const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
                 this.historyArray.unshift({ password, timestamp });
-                
+
                 // Keep only last 5 passwords
                 if (this.historyArray.length > 5) {
                     this.historyArray = this.historyArray.slice(0, 5);
                 }
-                
+
                 this.updateHistoryDisplay();
             }
 
             updateHistoryDisplay() {
                 const historyContainer = document.getElementById('passwordHistory');
-                
+
                 if (this.historyArray.length === 0) {
                     historyContainer.innerHTML = '<p class="text-gray-400 text-sm italic">No passwords generated yet</p>';
                     return;
                 }
-                
+
                 historyContainer.innerHTML = this.historyArray.map((item, index) => `
                     <div class="flex items-center justify-between bg-gray-800 bg-opacity-30 rounded-lg p-2">
                         <div class="flex-1">
@@ -483,13 +516,10 @@
                 toast.className = 'fixed top-4 right-4 bg-gradient-to-r from-pink-600 to-red-600 text-white px-6 py-3 rounded-xl shadow-2xl z-50 transition-all duration-300 border border-pink-400';
                 toast.innerHTML = `<div class="flex items-center"><span class="mr-2">🌸</span>${message}</div>`;
                 document.body.appendChild(toast);
-                
+
                 setTimeout(() => {
                     toast.style.opacity = '0';
                     toast.style.transform = 'translateX(100%)';
-                    setTimeout(() => document.body.removeChild(toast), 300);
-                }, 2000);
-            }'translateX(100%)';
                     setTimeout(() => document.body.removeChild(toast), 300);
                 }, 2000);
             }
@@ -502,4 +532,5 @@
         });
     </script>
 </body>
+
 </html>
