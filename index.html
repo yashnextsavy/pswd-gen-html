@@ -283,24 +283,24 @@
                 <button id="regenerateBtn"
                     class="bg-gray-700 hover:bg-gray-600 text-pink-100 font-medium py-3 px-4 rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-400 border border-gray-600"
                     disabled>
-                    🔄 再生成
+                    🔄 re Generate
                 </button>
                 <button id="clearBtn"
                     class="bg-red-800 hover:bg-red-700 text-pink-100 font-medium py-3 px-4 rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-red-400 border border-red-600">
-                    🗑️ クリア
+                    🗑️ Delete
                 </button>
             </div>
 
             <!-- Password History -->
             <div class="mt-6">
                 <div class="flex items-center justify-between mb-3">
-                    <h3 class="text-pink-100 font-medium">履歴 • Recent Passwords</h3>
+                    <h3 class="text-pink-100 font-medium">Recent Passwords</h3>
                     <button id="clearHistoryBtn" class="text-xs text-pink-300 hover:text-white transition-colors">
-                        履歴をクリア • Clear History
+                        Clear History
                     </button>
                 </div>
                 <div id="passwordHistory" class="space-y-2 max-h-32 overflow-y-auto">
-                    <p class="text-pink-200 text-sm italic">まだパスワードが生成されていません • No passwords generated yet</p>
+                    <p class="text-pink-200 text-sm italic">No passwords generated yet</p>
                 </div>
             </div>
         </div>
@@ -514,7 +514,7 @@
             showToast(message) {
                 const toast = document.createElement('div');
                 toast.className = 'fixed top-4 right-4 bg-gradient-to-r from-pink-600 to-red-600 text-white px-6 py-3 rounded-xl shadow-2xl z-50 transition-all duration-300 border border-pink-400';
-                toast.innerHTML = `<div class="flex items-center"><span class="mr-2">🌸</span>${message}</div>`;
+                toast.innerHTML = `<div class="flex items-center"><span class="mr-2"></span>${message}</div>`;
                 document.body.appendChild(toast);
 
                 setTimeout(() => {
